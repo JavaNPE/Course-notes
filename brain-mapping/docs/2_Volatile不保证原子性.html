@@ -1,0 +1,689 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-fences-math .MathJax_SVG_Display, .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: visible; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; zoom: 90%; }
+#math-inline-preview-content { zoom: 1.1; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-math .MathJax_SVG_Display { margin-top: 8px; cursor: default; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ :root {--mermaid-font-zoom:2.1em ;} 
+</style><title>README</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='volatile不保证原子性'><span>Volatile不保证原子性</span></h1><h2 id='前言'><span>前言</span></h2><p><span>通过前面对JMM的介绍，我们知道，各个线程对主内存中共享变量的操作都是各个线程各自拷贝到自己的工作内存进行操作后在写回到主内存中的。</span></p><p><span>这就可能存在一个线程AAA修改了共享变量X的值，但是还未写入主内存时，另外一个线程BBB又对主内存中同一共享变量X进行操作，但此时A线程工作内存中共享变量X对线程B来说是不可见，这种工作内存与主内存同步延迟现象就造成了可见性问题。</span></p><h2 id='原子性'><span>原子性</span></h2><p><span>不可分割，完整性，也就是说某个线程正在做某个具体业务时，中间不可以被加塞或者被分割，需要具体完成，要么同时成功，要么同时失败。</span></p><p><span>数据库也经常提到事务具备原子性</span></p><h2 id='代码测试'><span>代码测试</span></h2><p><span>为了测试volatile是否保证原子性，我们创建了20个线程，然后每个线程分别循环1000次，来调用number++的方法</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 7.80505px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  MyData myData = new MyData();</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  // 创建10个线程，线程里面进行1000次循环</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  for (int i = 0; i &lt; 20; i++) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  new Thread(() -&gt; {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  // 里面</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  for (int j = 0; j &lt; 1000; j++) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  myData.addPlusPlus();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }, String.valueOf(i)).start();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 251px;"></div><div class="CodeMirror-gutters" style="display: none; height: 251px;"></div></div></div></pre><p><span>最后通过 Thread.activeCount()，来感知20个线程是否执行完毕，这里判断线程数是否大于2，为什么是2？因为默认是有两个线程的，一个main线程，一个gc线程</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 7.80505px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">// 需要等待上面20个线程都计算完成后，在用main线程取得最终的结果值</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">while(Thread.activeCount() &gt; 2) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  // yield表示不执行</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  Thread.yield();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 114px;"></div><div class="CodeMirror-gutters" style="display: none; height: 114px;"></div></div></div></pre><p><span>然后在线程执行完毕后，我们在查看number的值，假设volatile保证原子性的话，那么最后输出的值应该是</span></p><p><span>20 * 1000 = 20000,</span></p><p><span>完整代码如下所示：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 7.99106px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">/**</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> * Volatile Java虚拟机提供的轻量级同步机制</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> *</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> * 可见性（及时通知）</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> * 不保证原子性</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> * 禁止指令重排</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> *</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> * @author: 陌溪</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> * @create: 2020-03-09-15:58</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> */</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">import java.util.concurrent.TimeUnit;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">/**</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> * 假设是主物理内存</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> */</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">class MyData {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  /**</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; * volatile 修饰的关键字，是为了增加 主线程和线程之间的可见性，只要有一个线程修改了内存中的值，其它线程也能马上感知</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; */</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  volatile int number = 0;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  public void addTo60() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  this.number = 60;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  /**</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; * 注意，此时number 前面是加了volatile修饰</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; */</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  public void addPlusPlus() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  number ++;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">/**</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> * 验证volatile的可见性</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> * 1、 假设int number = 0， number变量之前没有添加volatile关键字修饰</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> * 2、添加了volatile，可以解决可见性问题</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> *</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> * 验证volatile不保证原子性</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> * 1、原子性指的是什么意思？</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> */</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">public class VolatileDemo {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  public static void main(String args []) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  MyData myData = new MyData();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  // 创建10个线程，线程里面进行1000次循环</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  for (int i = 0; i &lt; 20; i++) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  new Thread(() -&gt; {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  // 里面</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  for (int j = 0; j &lt; 1000; j++) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  myData.addPlusPlus();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }, String.valueOf(i)).start();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  // 需要等待上面20个线程都计算完成后，在用main线程取得最终的结果值</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  // 这里判断线程数是否大于2，为什么是2？因为默认是有两个线程的，一个main线程，一个gc线程</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  while(Thread.activeCount() &gt; 2) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  // yield表示不执行</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Thread.yield();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  // 查看最终的值</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  // 假设volatile保证原子性，那么输出的值应该为：  20 * 1000 = 20000</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  System.out.println(Thread.currentThread().getName() + "\t finally number value: " + myData.number);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1691px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1691px;"></div></div></div></pre><p><span>最终结果我们会发现，number输出的值并没有20000，而且是每次运行的结果都不一致的，这说明了volatile修饰的变量不保证原子性</span></p><p><span>第一次：</span></p><p><img src="images/image-20200309172900462.png" referrerpolicy="no-referrer" alt="image-20200309172900462"></p><p><span>第二次：</span></p><p><img src="images/image-20200309172919295.png" referrerpolicy="no-referrer" alt="image-20200309172919295"></p><p><span>第三次：</span></p><p><img src="images/image-20200309172929820.png" referrerpolicy="no-referrer" alt="image-20200309172929820"></p><h2 id='为什么出现数值丢失'><span>为什么出现数值丢失</span></h2><p><img src="images/image-20200309174220675.png" referrerpolicy="no-referrer" alt="image-20200309174220675"></p><p><span>各自线程在写入主内存的时候，出现了数据的丢失，而引起的数值缺失的问题</span></p><p><span>下面我们将一个简单的number++操作，转换为字节码文件一探究竟</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 7.80505px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">public class T1 {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  volatile int n = 0;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  public void add() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  n++;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 137px;"></div><div class="CodeMirror-gutters" style="display: none; height: 137px;"></div></div></div></pre><p><span>转换后的字节码文件</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 7.80505px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">public class com.moxi.interview.study.thread.T1 {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  volatile int n;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  public com.moxi.interview.study.thread.T1();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  Code:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 0: aload_0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 1: invokespecial #1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  // Method java/lang/Object."&lt;init&gt;":()V</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 4: aload_0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 5: iconst_0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 6: putfield &nbsp; &nbsp;  #2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  // Field n:I</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 9: return</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  public void add();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  Code:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 0: aload_0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 1: dup</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 2: getfield &nbsp; &nbsp;  #2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  // Field n:I</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 5: iconst_1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 6: iadd</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 7: putfield &nbsp; &nbsp;  #2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  // Field n:I</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  10: return</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 503px;"></div><div class="CodeMirror-gutters" style="display: none; height: 503px;"></div></div></div></pre><p><span>这里查看字节码的操作，是用到了IDEA的javap命令</span></p><p><span>我们首先，使用IDEA提供的External Tools，来扩展javap命令</span></p><p><img src="images/image-20200309183026329.png" referrerpolicy="no-referrer" alt="image-20200309183026329"></p><p><span>完成上述操作后，我们在需要查看字节码的文件下，右键选择 External Tools即可</span></p><p><img src="images/image-20200309183115613.png" referrerpolicy="no-referrer" alt="image-20200309183115613"></p><p><span>如果出现了找不到指定类，那是因为我们创建的是spring boot的maven项目，我们之前需要执行mvn package命令，进行打包操作，将其编译成class文件</span></p><p><span>移动到底部，有一份字节码指令对照表，方便我们进行阅读</span></p><p><span>下面我们就针对 add() 这个方法的字节码文件进行分析</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 7.80505px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  public void add();</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  Code:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 0: aload_0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 1: dup</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 2: getfield &nbsp; &nbsp;  #2 &nbsp;  // Field n:I</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 5: iconst_1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 6: iadd</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; 7: putfield &nbsp; &nbsp;  #2 &nbsp;  // Field n:I</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  10: return</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 206px;"></div><div class="CodeMirror-gutters" style="display: none; height: 206px;"></div></div></div></pre><p><span>我们能够发现 n++这条命令，被拆分成了3个指令</span></p><ul><li><span>执行</span><code>getfield</code><span> 从主内存拿到原始n</span></li><li><span>执行</span><code>iadd</code><span> 进行加1操作</span></li><li><span>执行</span><code>putfileld</code><span> 把累加后的值写回主内存 </span></li></ul><p><span>假设我们没有加 </span><code>synchronized</code><span>那么第一步就可能存在着，三个线程同时通过getfield命令，拿到主存中的 n值，然后三个线程，各自在自己的工作内存中进行加1操作，但他们并发进行  </span><code>iadd</code><span> 命令的时候，因为只能一个进行写，所以其它操作会被挂起，假设1线程，先进行了写操作，在写完后，volatile的可见性，应该需要告诉其它两个线程，主内存的值已经被修改了，但是因为太快了，其它两个线程，陆续执行 </span><code>iadd</code><span>命令，进行写入操作，这就造成了其他线程没有接受到主内存n的改变，从而覆盖了原来的值，出现写丢失，这样也就让最终的结果少于20000</span></p><h2 id='如何解决'><span>如何解决</span></h2><p><span>因此这也说明，在多线程环境下 number ++ 在多线程环境下是非线程安全的，解决的方法有哪些呢？</span></p><ul><li><span>在方法上加入 synchronized</span></li></ul><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 7.80505px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  public synchronized void addPlusPlus() {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  number ++;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre><p><span>运行结果：</span></p><p><img src="images/image-20200309173315294.png" referrerpolicy="no-referrer" alt="image-20200309173315294"></p><p><span>我们能够发现引入synchronized关键字后，保证了该方法每次只能够一个线程进行访问和操作，最终输出的结果也就为20000</span></p><h2 id='其它解决方法'><span>其它解决方法</span></h2><p><span>上面的方法引入synchronized，虽然能够保证原子性，但是为了解决number++，而引入重量级的同步机制，有种 杀鸡焉用牛刀</span></p><p><span>除了引用synchronized关键字外，还可以使用JUC下面的原子包装类，即刚刚的int类型的number，可以使用AtomicInteger来代替</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 7.80505px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  /**</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; *  创建一个原子Integer包装类，默认为0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  */</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  AtomicInteger atomicInteger = new AtomicInteger();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  public void addAtomic() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  // 相当于 atomicInter ++</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  atomicInteger.getAndIncrement();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 206px;"></div><div class="CodeMirror-gutters" style="display: none; height: 206px;"></div></div></div></pre><p><span>然后同理，继续刚刚的操作</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 7.80505px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  // 创建10个线程，线程里面进行1000次循环</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  for (int i = 0; i &lt; 20; i++) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  new Thread(() -&gt; {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  // 里面</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  for (int j = 0; j &lt; 1000; j++) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  myData.addPlusPlus();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  myData.addAtomic();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }, String.valueOf(i)).start();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 229px;"></div><div class="CodeMirror-gutters" style="display: none; height: 229px;"></div></div></div></pre><p><span>最后输出</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.42857px; left: 7.80505px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  // 假设volatile保证原子性，那么输出的值应该为：  20 * 1000 = 20000</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  System.out.println(Thread.currentThread().getName() + "\t finally number value: " + myData.number);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  System.out.println(Thread.currentThread().getName() + "\t finally atomicNumber value: " + myData.atomicInteger);</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 114px;"></div><div class="CodeMirror-gutters" style="display: none; height: 114px;"></div></div></div></pre><p><span>下面的结果，一个是引入synchronized，一个是使用了原子包装类AtomicInteger</span></p><p><img src="images/image-20200309205242622.png" referrerpolicy="no-referrer" alt="image-20200309205242622"></p><p>&nbsp;</p><h2 id='字节码指令表'><span>字节码指令表</span></h2><p><span>为了方便阅读JVM字节码文件，我从网上找了一份字节码指令表</span></p><p><span>引用：</span><a href='https://segmentfault.com/a/1190000008722128' target='_blank' class='url'>https://segmentfault.com/a/1190000008722128</a></p><figure><table><thead><tr><th><span>字节码</span></th><th><span>助记符</span></th><th><span>指令含义</span></th></tr></thead><tbody><tr><td><span>0x00</span></td><td><span>nop</span></td><td><span>None</span></td></tr><tr><td><span>0x01</span></td><td><span>aconst_null</span></td><td><span>将null推送至栈顶</span></td></tr><tr><td><span>0x02</span></td><td><span>iconst_m1</span></td><td><span>将int型-1推送至栈顶</span></td></tr><tr><td><span>0x03</span></td><td><span>iconst_0</span></td><td><span>将int型0推送至栈顶</span></td></tr><tr><td><span>0x04</span></td><td><span>iconst_1</span></td><td><span>将int型1推送至栈顶</span></td></tr><tr><td><span>0x05</span></td><td><span>iconst_2</span></td><td><span>将int型2推送至栈顶</span></td></tr><tr><td><span>0x06</span></td><td><span>iconst_3</span></td><td><span>将int型3推送至栈顶</span></td></tr><tr><td><span>0x07</span></td><td><span>iconst_4</span></td><td><span>将int型4推送至栈顶</span></td></tr><tr><td><span>0x08</span></td><td><span>iconst_5</span></td><td><span>将int型5推送至栈顶</span></td></tr><tr><td><span>0x09</span></td><td><span>lconst_0</span></td><td><span>将long型0推送至栈顶</span></td></tr><tr><td><span>0x0a</span></td><td><span>lconst_1</span></td><td><span>将long型1推送至栈顶</span></td></tr><tr><td><span>0x0b</span></td><td><span>fconst_0</span></td><td><span>将float型0推送至栈顶</span></td></tr><tr><td><span>0x0c</span></td><td><span>fconst_1</span></td><td><span>将float型1推送至栈顶</span></td></tr><tr><td><span>0x0d</span></td><td><span>fconst_2</span></td><td><span>将float型2推送至栈顶</span></td></tr><tr><td><span>0x0e</span></td><td><span>dconst_0</span></td><td><span>将double型0推送至栈顶</span></td></tr><tr><td><span>0x0f</span></td><td><span>dconst_1</span></td><td><span>将double型1推送至栈顶</span></td></tr><tr><td><span>0x10</span></td><td><span>bipush</span></td><td><span>将单字节的常量值(-128~127)推送至栈顶</span></td></tr><tr><td><span>0x11</span></td><td><span>sipush</span></td><td><span>将一个短整型常量(-32768~32767)推送至栈顶</span></td></tr><tr><td><span>0x12</span></td><td><span>ldc</span></td><td><span>将int,float或String型常量值从常量池中推送至栈顶</span></td></tr><tr><td><span>0x13</span></td><td><span>ldc_w</span></td><td><span>将int,float或String型常量值从常量池中推送至栈顶(宽索引)</span></td></tr><tr><td><span>0x14</span></td><td><span>ldc2_w</span></td><td><span>将long或double型常量值从常量池中推送至栈顶(宽索引)</span></td></tr><tr><td><span>0x15</span></td><td><span>iload</span></td><td><span>将指定的int型本地变量推送至栈顶</span></td></tr><tr><td><span>0x16</span></td><td><span>lload</span></td><td><span>将指定的long型本地变量推送至栈顶</span></td></tr><tr><td><span>0x17</span></td><td><span>fload</span></td><td><span>将指定的float型本地变量推送至栈顶</span></td></tr><tr><td><span>0x18</span></td><td><span>dload</span></td><td><span>将指定的double型本地变量推送至栈顶</span></td></tr><tr><td><span>0x19</span></td><td><span>aload</span></td><td><span>将指定的引用类型本地变量推送至栈顶</span></td></tr><tr><td><span>0x1a</span></td><td><span>iload_0</span></td><td><span>将第一个int型本地变量推送至栈顶</span></td></tr><tr><td><span>0x1b</span></td><td><span>iload_1</span></td><td><span>将第二个int型本地变量推送至栈顶</span></td></tr><tr><td><span>0x1c</span></td><td><span>iload_2</span></td><td><span>将第三个int型本地变量推送至栈顶</span></td></tr><tr><td><span>0x1d</span></td><td><span>iload_3</span></td><td><span>将第四个int型本地变量推送至栈顶</span></td></tr><tr><td><span>0x1e</span></td><td><span>lload_0</span></td><td><span>将第一个long型本地变量推送至栈顶</span></td></tr><tr><td><span>0x1f</span></td><td><span>lload_1</span></td><td><span>将第二个long型本地变量推送至栈顶</span></td></tr><tr><td><span>0x20</span></td><td><span>lload_2</span></td><td><span>将第三个long型本地变量推送至栈顶</span></td></tr><tr><td><span>0x21</span></td><td><span>lload_3</span></td><td><span>将第四个long型本地变量推送至栈顶</span></td></tr><tr><td><span>0x22</span></td><td><span>fload_0</span></td><td><span>将第一个float型本地变量推送至栈顶</span></td></tr><tr><td><span>0x23</span></td><td><span>fload_1</span></td><td><span>将第二个float型本地变量推送至栈顶</span></td></tr><tr><td><span>0x24</span></td><td><span>fload_2</span></td><td><span>将第三个float型本地变量推送至栈顶</span></td></tr><tr><td><span>0x25</span></td><td><span>fload_3</span></td><td><span>将第四个float型本地变量推送至栈顶</span></td></tr><tr><td><span>0x26</span></td><td><span>dload_0</span></td><td><span>将第一个double型本地变量推送至栈顶</span></td></tr><tr><td><span>0x27</span></td><td><span>dload_1</span></td><td><span>将第二个double型本地变量推送至栈顶</span></td></tr><tr><td><span>0x28</span></td><td><span>dload_2</span></td><td><span>将第三个double型本地变量推送至栈顶</span></td></tr><tr><td><span>0x29</span></td><td><span>dload_3</span></td><td><span>将第四个double型本地变量推送至栈顶</span></td></tr><tr><td><span>0x2a</span></td><td><span>aload_0</span></td><td><span>将第一个引用类型本地变量推送至栈顶</span></td></tr><tr><td><span>0x2b</span></td><td><span>aload_1</span></td><td><span>将第二个引用类型本地变量推送至栈顶</span></td></tr><tr><td><span>0x2c</span></td><td><span>aload_2</span></td><td><span>将第三个引用类型本地变量推送至栈顶</span></td></tr><tr><td><span>0x2d</span></td><td><span>aload_3</span></td><td><span>将第四个引用类型本地变量推送至栈顶</span></td></tr><tr><td><span>0x2e</span></td><td><span>iaload</span></td><td><span>将int型数组指定索引的值推送至栈顶</span></td></tr><tr><td><span>0x2f</span></td><td><span>laload</span></td><td><span>将long型数组指定索引的值推送至栈顶</span></td></tr><tr><td><span>0x30</span></td><td><span>faload</span></td><td><span>将float型数组指定索引的值推送至栈顶</span></td></tr><tr><td><span>0x31</span></td><td><span>daload</span></td><td><span>将double型数组指定索引的值推送至栈顶</span></td></tr><tr><td><span>0x32</span></td><td><span>aaload</span></td><td><span>将引用类型数组指定索引的值推送至栈顶</span></td></tr><tr><td><span>0x33</span></td><td><span>baload</span></td><td><span>将boolean或byte型数组指定索引的值推送至栈顶</span></td></tr><tr><td><span>0x34</span></td><td><span>caload</span></td><td><span>将char型数组指定索引的值推送至栈顶</span></td></tr><tr><td><span>0x35</span></td><td><span>saload</span></td><td><span>将short型数组指定索引的值推送至栈顶</span></td></tr><tr><td><span>0x36</span></td><td><span>istore</span></td><td><span>将栈顶int型数值存入指定本地变量</span></td></tr><tr><td><span>0x37</span></td><td><span>lstore</span></td><td><span>将栈顶long型数值存入指定本地变量</span></td></tr><tr><td><span>0x38</span></td><td><span>fstore</span></td><td><span>将栈顶float型数值存入指定本地变量</span></td></tr><tr><td><span>0x39</span></td><td><span>dstore</span></td><td><span>将栈顶double型数值存入指定本地变量</span></td></tr><tr><td><span>0x3a</span></td><td><span>astore</span></td><td><span>将栈顶引用类型数值存入指定本地变量</span></td></tr><tr><td><span>0x3b</span></td><td><span>istore_0</span></td><td><span>将栈顶int型数值存入第一个本地变量</span></td></tr><tr><td><span>0x3c</span></td><td><span>istore_1</span></td><td><span>将栈顶int型数值存入第二个本地变量</span></td></tr><tr><td><span>0x3d</span></td><td><span>istore_2</span></td><td><span>将栈顶int型数值存入第三个本地变量</span></td></tr><tr><td><span>0x3e</span></td><td><span>istore_3</span></td><td><span>将栈顶int型数值存入第四个本地变量</span></td></tr><tr><td><span>0x3f</span></td><td><span>lstore_0</span></td><td><span>将栈顶long型数值存入第一个本地变量</span></td></tr><tr><td><span>0x40</span></td><td><span>lstore_1</span></td><td><span>将栈顶long型数值存入第二个本地变量</span></td></tr><tr><td><span>0x41</span></td><td><span>lstore_2</span></td><td><span>将栈顶long型数值存入第三个本地变量</span></td></tr><tr><td><span>0x42</span></td><td><span>lstore_3</span></td><td><span>将栈顶long型数值存入第四个本地变量</span></td></tr><tr><td><span>0x43</span></td><td><span>fstore_0</span></td><td><span>将栈顶float型数值存入第一个本地变量</span></td></tr><tr><td><span>0x44</span></td><td><span>fstore_1</span></td><td><span>将栈顶float型数值存入第二个本地变量</span></td></tr><tr><td><span>0x45</span></td><td><span>fstore_2</span></td><td><span>将栈顶float型数值存入第三个本地变量</span></td></tr><tr><td><span>0x46</span></td><td><span>fstore_3</span></td><td><span>将栈顶float型数值存入第四个本地变量</span></td></tr><tr><td><span>0x47</span></td><td><span>dstore_0</span></td><td><span>将栈顶double型数值存入第一个本地变量</span></td></tr><tr><td><span>0x48</span></td><td><span>dstore_1</span></td><td><span>将栈顶double型数值存入第二个本地变量</span></td></tr><tr><td><span>0x49</span></td><td><span>dstore_2</span></td><td><span>将栈顶double型数值存入第三个本地变量</span></td></tr><tr><td><span>0x4a</span></td><td><span>dstore_3</span></td><td><span>将栈顶double型数值存入第四个本地变量</span></td></tr><tr><td><span>0x4b</span></td><td><span>astore_0</span></td><td><span>将栈顶引用型数值存入第一个本地变量</span></td></tr><tr><td><span>0x4c</span></td><td><span>astore_1</span></td><td><span>将栈顶引用型数值存入第二个本地变量</span></td></tr><tr><td><span>0x4d</span></td><td><span>astore_2</span></td><td><span>将栈顶引用型数值存入第三个本地变量</span></td></tr><tr><td><span>0x4e</span></td><td><span>astore_3</span></td><td><span>将栈顶引用型数值存入第四个本地变量</span></td></tr><tr><td><span>0x4f</span></td><td><span>iastore</span></td><td><span>将栈顶int型数值存入指定数组的指定索引位置</span></td></tr><tr><td><span>0x50</span></td><td><span>lastore</span></td><td><span>将栈顶long型数值存入指定数组的指定索引位置</span></td></tr><tr><td><span>0x51</span></td><td><span>fastore</span></td><td><span>将栈顶float型数值存入指定数组的指定索引位置</span></td></tr><tr><td><span>0x52</span></td><td><span>dastore</span></td><td><span>将栈顶double型数值存入指定数组的指定索引位置</span></td></tr><tr><td><span>0x53</span></td><td><span>aastore</span></td><td><span>将栈顶引用型数值存入指定数组的指定索引位置</span></td></tr><tr><td><span>0x54</span></td><td><span>bastore</span></td><td><span>将栈顶boolean或byte型数值存入指定数组的指定索引位置</span></td></tr><tr><td><span>0x55</span></td><td><span>castore</span></td><td><span>将栈顶char型数值存入指定数组的指定索引位置</span></td></tr><tr><td><span>0x56</span></td><td><span>sastore</span></td><td><span>将栈顶short型数值存入指定数组的指定索引位置</span></td></tr><tr><td><span>0x57</span></td><td><span>pop</span></td><td><span>将栈顶数值弹出(数值不能是long或double类型的)</span></td></tr><tr><td><span>0x58</span></td><td><span>pop2</span></td><td><span>将栈顶的一个(对于非long或double类型)或两个数值(对于非long或double的其他类型)弹出</span></td></tr><tr><td><span>0x59</span></td><td><span>dup</span></td><td><span>复制栈顶数值并将复制值压入栈顶</span></td></tr><tr><td><span>0x5a</span></td><td><span>dup_x1</span></td><td><span>复制栈顶数值并将两个复制值压入栈顶</span></td></tr><tr><td><span>0x5b</span></td><td><span>dup_x2</span></td><td><span>复制栈顶数值并将三个(或两个)复制值压入栈顶</span></td></tr><tr><td><span>0x5c</span></td><td><span>dup2</span></td><td><span>复制栈顶一个(对于long或double类型)或两个(对于非long或double的其他类型)数值并将复制值压入栈顶</span></td></tr><tr><td><span>0x5d</span></td><td><span>dup2_x1</span></td><td><span>dup_x1指令的双倍版本</span></td></tr><tr><td><span>0x5e</span></td><td><span>dup2_x2</span></td><td><span>dup_x2指令的双倍版本</span></td></tr><tr><td><span>0x5f</span></td><td><span>swap</span></td><td><span>将栈顶最顶端的两个数值互换(数值不能是long或double类型)</span></td></tr><tr><td><span>0x60</span></td><td><span>iadd</span></td><td><span>将栈顶两int型数值相加并将结果压入栈顶</span></td></tr><tr><td><span>0x61</span></td><td><span>ladd</span></td><td><span>将栈顶两long型数值相加并将结果压入栈顶</span></td></tr><tr><td><span>0x62</span></td><td><span>fadd</span></td><td><span>将栈顶两float型数值相加并将结果压入栈顶</span></td></tr><tr><td><span>0x63</span></td><td><span>dadd</span></td><td><span>将栈顶两double型数值相加并将结果压入栈顶</span></td></tr><tr><td><span>0x64</span></td><td><span>isub</span></td><td><span>将栈顶两int型数值相减并将结果压入栈顶</span></td></tr><tr><td><span>0x65</span></td><td><span>lsub</span></td><td><span>将栈顶两long型数值相减并将结果压入栈顶</span></td></tr><tr><td><span>0x66</span></td><td><span>fsub</span></td><td><span>将栈顶两float型数值相减并将结果压入栈顶</span></td></tr><tr><td><span>0x67</span></td><td><span>dsub</span></td><td><span>将栈顶两double型数值相减并将结果压入栈顶</span></td></tr><tr><td><span>0x68</span></td><td><span>imul</span></td><td><span>将栈顶两int型数值相乘并将结果压入栈顶</span></td></tr><tr><td><span>0x69</span></td><td><span>lmul</span></td><td><span>将栈顶两long型数值相乘并将结果压入栈顶</span></td></tr><tr><td><span>0x6a</span></td><td><span>fmul</span></td><td><span>将栈顶两float型数值相乘并将结果压入栈顶</span></td></tr><tr><td><span>0x6b</span></td><td><span>dmul</span></td><td><span>将栈顶两double型数值相乘并将结果压入栈顶</span></td></tr><tr><td><span>0x6c</span></td><td><span>idiv</span></td><td><span>将栈顶两int型数值相除并将结果压入栈顶</span></td></tr><tr><td><span>0x6d</span></td><td><span>ldiv</span></td><td><span>将栈顶两long型数值相除并将结果压入栈顶</span></td></tr><tr><td><span>0x6e</span></td><td><span>fdiv</span></td><td><span>将栈顶两float型数值相除并将结果压入栈顶</span></td></tr><tr><td><span>0x6f</span></td><td><span>ddiv</span></td><td><span>将栈顶两double型数值相除并将结果压入栈顶</span></td></tr><tr><td><span>0x70</span></td><td><span>irem</span></td><td><span>将栈顶两int型数值作取模运算并将结果压入栈顶</span></td></tr><tr><td><span>0x71</span></td><td><span>lrem</span></td><td><span>将栈顶两long型数值作取模运算并将结果压入栈顶</span></td></tr><tr><td><span>0x72</span></td><td><span>frem</span></td><td><span>将栈顶两float型数值作取模运算并将结果压入栈顶</span></td></tr><tr><td><span>0x73</span></td><td><span>drem</span></td><td><span>将栈顶两double型数值作取模运算并将结果压入栈顶</span></td></tr><tr><td><span>0x74</span></td><td><span>ineg</span></td><td><span>将栈顶int型数值取负并将结果压入栈顶</span></td></tr><tr><td><span>0x75</span></td><td><span>lneg</span></td><td><span>将栈顶long型数值取负并将结果压入栈顶</span></td></tr><tr><td><span>0x76</span></td><td><span>fneg</span></td><td><span>将栈顶float型数值取负并将结果压入栈顶</span></td></tr><tr><td><span>0x77</span></td><td><span>dneg</span></td><td><span>将栈顶double型数值取负并将结果压入栈顶</span></td></tr><tr><td><span>0x78</span></td><td><span>ishl</span></td><td><span>将int型数值左移指定位数并将结果压入栈顶</span></td></tr><tr><td><span>0x79</span></td><td><span>lshl</span></td><td><span>将long型数值左移指定位数并将结果压入栈顶</span></td></tr><tr><td><span>0x7a</span></td><td><span>ishr</span></td><td><span>将int型数值右(带符号)移指定位数并将结果压入栈顶</span></td></tr><tr><td><span>0x7b</span></td><td><span>lshr</span></td><td><span>将long型数值右(带符号)移指定位数并将结果压入栈顶</span></td></tr><tr><td><span>0x7c</span></td><td><span>iushr</span></td><td><span>将int型数值右(无符号)移指定位数并将结果压入栈顶</span></td></tr><tr><td><span>0x7d</span></td><td><span>lushr</span></td><td><span>将long型数值右(无符号)移指定位数并将结果压入栈顶</span></td></tr><tr><td><span>0x7e</span></td><td><span>iand</span></td><td><span>将栈顶两int型数值&quot;按位与&quot;并将结果压入栈顶</span></td></tr><tr><td><span>0x7f</span></td><td><span>land</span></td><td><span>将栈顶两long型数值&quot;按位与&quot;并将结果压入栈顶</span></td></tr><tr><td><span>0x80</span></td><td><span>ior</span></td><td><span>将栈顶两int型数值&quot;按位或&quot;并将结果压入栈顶</span></td></tr><tr><td><span>0x81</span></td><td><span>lor</span></td><td><span>将栈顶两long型数值&quot;按位或&quot;并将结果压入栈顶</span></td></tr><tr><td><span>0x82</span></td><td><span>ixor</span></td><td><span>将栈顶两int型数值&quot;按位异或&quot;并将结果压入栈顶</span></td></tr><tr><td><span>0x83</span></td><td><span>lxor</span></td><td><span>将栈顶两long型数值&quot;按位异或&quot;并将结果压入栈顶</span></td></tr><tr><td><span>0x84</span></td><td><span>iinc</span></td><td><span>将指定int型变量增加指定值(如i++, i--, i+=2等)</span></td></tr><tr><td><span>0x85</span></td><td><span>i2l</span></td><td><span>将栈顶int型数值强制转换为long型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x86</span></td><td><span>i2f</span></td><td><span>将栈顶int型数值强制转换为float型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x87</span></td><td><span>i2d</span></td><td><span>将栈顶int型数值强制转换为double型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x88</span></td><td><span>l2i</span></td><td><span>将栈顶long型数值强制转换为int型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x89</span></td><td><span>l2f</span></td><td><span>将栈顶long型数值强制转换为float型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x8a</span></td><td><span>l2d</span></td><td><span>将栈顶long型数值强制转换为double型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x8b</span></td><td><span>f2i</span></td><td><span>将栈顶float型数值强制转换为int型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x8c</span></td><td><span>f2l</span></td><td><span>将栈顶float型数值强制转换为long型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x8d</span></td><td><span>f2d</span></td><td><span>将栈顶float型数值强制转换为double型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x8e</span></td><td><span>d2i</span></td><td><span>将栈顶double型数值强制转换为int型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x8f</span></td><td><span>d2l</span></td><td><span>将栈顶double型数值强制转换为long型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x90</span></td><td><span>d2f</span></td><td><span>将栈顶double型数值强制转换为float型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x91</span></td><td><span>i2b</span></td><td><span>将栈顶int型数值强制转换为byte型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x92</span></td><td><span>i2c</span></td><td><span>将栈顶int型数值强制转换为char型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x93</span></td><td><span>i2s</span></td><td><span>将栈顶int型数值强制转换为short型数值并将结果压入栈顶</span></td></tr><tr><td><span>0x94</span></td><td><span>lcmp</span></td><td><span>比较栈顶两long型数值大小, 并将结果(1, 0或-1)压入栈顶</span></td></tr><tr><td><span>0x95</span></td><td><span>fcmpl</span></td><td><span>比较栈顶两float型数值大小, 并将结果(1, 0或-1)压入栈顶; 当其中一个数值为</span><code>NaN</code><span>时, 将-1压入栈顶</span></td></tr><tr><td><span>0x96</span></td><td><span>fcmpg</span></td><td><span>比较栈顶两float型数值大小, 并将结果(1, 0或-1)压入栈顶; 当其中一个数值为</span><code>NaN</code><span>时, 将1压入栈顶</span></td></tr><tr><td><span>0x97</span></td><td><span>dcmpl</span></td><td><span>比较栈顶两double型数值大小, 并将结果(1, 0或-1)压入栈顶; 当其中一个数值为</span><code>NaN</code><span>时, 将-1压入栈顶</span></td></tr><tr><td><span>0x98</span></td><td><span>dcmpg</span></td><td><span>比较栈顶两double型数值大小, 并将结果(1, 0或-1)压入栈顶; 当其中一个数值为</span><code>NaN</code><span>时, 将1压入栈顶</span></td></tr><tr><td><span>0x99</span></td><td><span>ifeq</span></td><td><span>当栈顶int型数值等于0时跳转</span></td></tr><tr><td><span>0x9a</span></td><td><span>ifne</span></td><td><span>当栈顶int型数值不等于0时跳转</span></td></tr><tr><td><span>0x9b</span></td><td><span>iflt</span></td><td><span>当栈顶int型数值小于0时跳转</span></td></tr><tr><td><span>0x9c</span></td><td><span>ifge</span></td><td><span>当栈顶int型数值大于等于0时跳转</span></td></tr><tr><td><span>0x9d</span></td><td><span>ifgt</span></td><td><span>当栈顶int型数值大于0时跳转</span></td></tr><tr><td><span>0x9e</span></td><td><span>ifle</span></td><td><span>当栈顶int型数值小于等于0时跳转</span></td></tr><tr><td><span>0x9f</span></td><td><span>if_icmpeq</span></td><td><span>比较栈顶两int型数值大小, 当结果等于0时跳转</span></td></tr><tr><td><span>0xa0</span></td><td><span>if_icmpne</span></td><td><span>比较栈顶两int型数值大小, 当结果不等于0时跳转</span></td></tr><tr><td><span>0xa1</span></td><td><span>if_icmplt</span></td><td><span>比较栈顶两int型数值大小, 当结果小于0时跳转</span></td></tr><tr><td><span>0xa2</span></td><td><span>if_icmpge</span></td><td><span>比较栈顶两int型数值大小, 当结果大于等于0时跳转</span></td></tr><tr><td><span>0xa3</span></td><td><span>if_icmpgt</span></td><td><span>比较栈顶两int型数值大小, 当结果大于0时跳转</span></td></tr><tr><td><span>0xa4</span></td><td><span>if_icmple</span></td><td><span>比较栈顶两int型数值大小, 当结果小于等于0时跳转</span></td></tr><tr><td><span>0xa5</span></td><td><span>if_acmpeq</span></td><td><span>比较栈顶两引用型数值, 当结果相等时跳转</span></td></tr><tr><td><span>0xa6</span></td><td><span>if_acmpne</span></td><td><span>比较栈顶两引用型数值, 当结果不相等时跳转</span></td></tr><tr><td><span>0xa7</span></td><td><span>goto</span></td><td><span>无条件跳转</span></td></tr><tr><td><span>0xa8</span></td><td><span>jsr</span></td><td><span>跳转至指定的16位offset位置, 并将jsr的下一条指令地址压入栈顶</span></td></tr><tr><td><span>0xa9</span></td><td><span>ret</span></td><td><span>返回至本地变量指定的index的指令位置(一般与jsr或jsr_w联合使用)</span></td></tr><tr><td><span>0xaa</span></td><td><span>tableswitch</span></td><td><span>用于switch条件跳转, case值连续(可变长度指令)</span></td></tr><tr><td><span>0xab</span></td><td><span>lookupswitch</span></td><td><span>用于switch条件跳转, case值不连续(可变长度指令)</span></td></tr><tr><td><span>0xac</span></td><td><span>ireturn</span></td><td><span>从当前方法返回int</span></td></tr><tr><td><span>0xad</span></td><td><span>lreturn</span></td><td><span>从当前方法返回long</span></td></tr><tr><td><span>0xae</span></td><td><span>freturn</span></td><td><span>从当前方法返回float</span></td></tr><tr><td><span>0xaf</span></td><td><span>dreturn</span></td><td><span>从当前方法返回double</span></td></tr><tr><td><span>0xb0</span></td><td><span>areturn</span></td><td><span>从当前方法返回对象引用</span></td></tr><tr><td><span>0xb1</span></td><td><span>return</span></td><td><span>从当前方法返回void</span></td></tr><tr><td><span>0xb2</span></td><td><span>getstatic</span></td><td><span>获取指定类的静态域, 并将其压入栈顶</span></td></tr><tr><td><span>0xb3</span></td><td><span>putstatic</span></td><td><span>为指定类的静态域赋值</span></td></tr><tr><td><span>0xb4</span></td><td><span>getfield</span></td><td><span>获取指定类的实例域, 并将其压入栈顶</span></td></tr><tr><td><span>0xb5</span></td><td><span>putfield</span></td><td><span>为指定类的实例域赋值</span></td></tr><tr><td><span>0xb6</span></td><td><span>invokevirtual</span></td><td><span>调用实例方法</span></td></tr><tr><td><span>0xb7</span></td><td><span>invokespecial</span></td><td><span>调用超类构建方法, 实例初始化方法, 私有方法</span></td></tr><tr><td><span>0xb8</span></td><td><span>invokestatic</span></td><td><span>调用静态方法</span></td></tr><tr><td><span>0xb9</span></td><td><span>invokeinterface</span></td><td><span>调用接口方法</span></td></tr><tr><td><span>0xba</span></td><td><span>invokedynamic</span></td><td><span>调用动态方法</span></td></tr><tr><td><span>0xbb</span></td><td><span>new</span></td><td><span>创建一个对象, 并将其引用引用值压入栈顶</span></td></tr><tr><td><span>0xbc</span></td><td><span>newarray</span></td><td><span>创建一个指定的原始类型(如int, float, char等)的数组, 并将其引用值压入栈顶</span></td></tr><tr><td><span>0xbd</span></td><td><span>anewarray</span></td><td><span>创建一个引用型(如类, 接口, 数组)的数组, 并将其引用值压入栈顶</span></td></tr><tr><td><span>0xbe</span></td><td><span>arraylength</span></td><td><span>获取数组的长度值并压入栈顶</span></td></tr><tr><td><span>0xbf</span></td><td><span>athrow</span></td><td><span>将栈顶的异常抛出</span></td></tr><tr><td><span>0xc0</span></td><td><span>checkcast</span></td><td><span>检验类型转换, 检验未通过将抛出 ClassCastException</span></td></tr><tr><td><span>0xc1</span></td><td><span>instanceof</span></td><td><span>检验对象是否是指定类的实际, 如果是将1压入栈顶, 否则将0压入栈顶</span></td></tr><tr><td><span>0xc2</span></td><td><span>monitorenter</span></td><td><span>获得对象的锁, 用于同步方法或同步块</span></td></tr><tr><td><span>0xc3</span></td><td><span>monitorexit</span></td><td><span>释放对象的锁, 用于同步方法或同步块</span></td></tr><tr><td><span>0xc4</span></td><td><span>wide</span></td><td><span>扩展本地变量的宽度</span></td></tr><tr><td><span>0xc5</span></td><td><span>multianewarray</span></td><td><span>创建指定类型和指定维度的多维数组(执行该指令时, 操作栈中必须包含各维度的长度值), 并将其引用压入栈顶</span></td></tr><tr><td><span>0xc6</span></td><td><span>ifnull</span></td><td><span>为null时跳转</span></td></tr><tr><td><span>0xc7</span></td><td><span>ifnonnull</span></td><td><span>不为null时跳转</span></td></tr><tr><td><span>0xc8</span></td><td><span>goto_w</span></td><td><span>无条件跳转(宽索引)</span></td></tr><tr><td><span>0xc9</span></td><td><span>jsr_w</span></td><td><span>跳转至指定的32位offset位置, 并将jsr_w的下一条指令地址压入栈顶</span></td></tr></tbody></table></figure></div></div>
+</body>
+</html>
